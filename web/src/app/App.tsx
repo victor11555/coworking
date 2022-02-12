@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom'
 import Landing from '../features/Landing'
 import { ROUTES } from '../ui-library/constants/routes'
 
-function App() {
+const App  = () => {
     return (
         <ThemeProvider>
             <Landing />

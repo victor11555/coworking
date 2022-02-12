@@ -3,7 +3,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 const HTMLWebpackPlugin = require("html-webpack-plugin")
 
 module.exports = {
-    entry: "./src/index.tsx",
+    entry: "./web/src/index.tsx",
     output: {
         path: path.resolve(__dirname, "dist"),
         filename: "[name].bundle.js"
@@ -16,7 +16,7 @@ module.exports = {
         open: true
     },
     plugins: [
-        new HTMLWebpackPlugin({ template: "./src/index.html" }),
+        new HTMLWebpackPlugin({ template: "./web/src/index.html" }),
         new CleanWebpackPlugin()
     ],
     devtool: 'inline-source-map',

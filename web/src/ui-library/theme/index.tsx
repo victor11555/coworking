@@ -5,7 +5,6 @@ import { styled } from '@linaria/react'
 import lightTheme from './light'
 import darkTheme from './dark'
 
-
 type Props = {
     children: ReactNode
     theme?: string
@@ -26,7 +25,6 @@ export default ({ children, theme = 'light' }: Props): ReactElement => (
     <ThemeProvider theme={createTheme()}>
         <Container className={themes[theme]}>
             {children}
-            <div className="portal" />
         </Container>
     </ThemeProvider>
 )

@@ -1,11 +1,16 @@
 import React, { ReactElement } from 'react'
-import { style, Wrapper } from './styles'
+import { Wrapper, style } from './styles'
+import Button, {PrimaryButton, SecondaryButton, LoaderButton} from '../../ui-library/components/Button'
 
-const LandingPage = (): ReactElement => {
+const Landing = (): ReactElement => {
     return (
         <Wrapper>
+            <Button>first button</Button>
+            <PrimaryButton>primary</PrimaryButton>
+            <SecondaryButton>secondary</SecondaryButton>
+            <LoaderButton />
         </Wrapper>
     )
 }
 
-export default LandingPage
+export default Landing

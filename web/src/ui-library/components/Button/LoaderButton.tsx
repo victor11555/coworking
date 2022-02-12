@@ -12,6 +12,9 @@ const styles = {
       background-color: var(--color-button-loader-bg);
       border: 0.063rem solid var(--color-button-loader-border);
       color: var(--color-button-loader-text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     `,
     spinner: css`
       width: 1rem;

@@ -11,8 +11,12 @@ const style = {
     wrapper: css`
       border-radius: var(--border-radius);
       font-weight: var(--text-weight-normal);
+      font-size: var(--text-size-lg);
+      line-height: var(--text-size-xl);
       text-align: center;
       cursor: pointer;
+      width: 29rem;
+      height: 5.125rem;
 
       &:disabled,
       &:disabled:hover {

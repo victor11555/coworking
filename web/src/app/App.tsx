@@ -1,13 +1,14 @@
 import React from "react";
-import './App.scss';
+import ThemeProvider from '../ui-library/theme'
+import { Switch, Route } from 'react-router-dom'
+import Landing from '../features/Landing'
+import { ROUTES } from '../ui-library/constants/routes'
 
 const App  = () => {
     return (
-        <>
-            <div className="App">
-                <h1>Coworking App</h1>
-            </div>
-        </>
+        <ThemeProvider>
+            <Landing />
+        </ThemeProvider>
     );
 }
 

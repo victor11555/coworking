@@ -1,15 +1,31 @@
 import React, { FC, ReactNode, ButtonHTMLAttributes } from 'react'
 import { css, cx } from '@linaria/core'
 
-type Props = { className?: string, children: ReactNode } & ButtonHTMLAttributes<HTMLButtonElement>
+type Props = {
+    children: ReactNode
+    className?: string
+    isLoading?: boolean
+} & ButtonHTMLAttributes<HTMLButtonElement>
 
-const styles = {
+const style = {
     wrapper: css`
+      border-radius: var(--border-radius);
+      font-weight: var(--text-weight-normal);
+      text-align: center;
+      cursor: pointer;
+
+      &:disabled,
+      &:disabled:hover {
+        background-color: var(--color-button-disabled-bg);
+        border: none;
+        color: var(--color-button-disabled-text);
+        cursor: default;
+      }
     `,
 }
 
-const Button: FC<Props> = ({className, children}) => (
-    <button className={cx(styles.wrapper, className)}>
+const Button: FC<Props> = ({ className, children, ...otherProps}) => (
+    <button className={cx(style.wrapper, className)} {...otherProps}>
         {children}
     </button>
 )

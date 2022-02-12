@@ -1,6 +1,7 @@
 const path = require("path")
 const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 const HTMLWebpackPlugin = require("html-webpack-plugin")
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     entry: "./web/src/index.tsx",
@@ -17,25 +18,46 @@ module.exports = {
     },
     plugins: [
         new HTMLWebpackPlugin({ template: "./web/src/index.html" }),
-        new CleanWebpackPlugin()
+        new CleanWebpackPlugin(),
+        new MiniCssExtractPlugin({
+            filename: 'styles.css',
+        })
     ],
     devtool: 'inline-source-map',
     module: {
         rules: [
             {
-                test: /\.tsx?$/,
-                use: ['babel-loader', 'ts-loader'],
-                exclude: /node_modules/,
-            },
-            {
-                test: /\.scss$/,
-                use: ["style-loader", "css-loader", "sass-loader"]
-            },
-            {
                 test: /\.(jpg|jpeg|png|svg)/,
                 use: ["file-loader"]
-            }
+            },
+            {
+                test: /\.tsx?$/,
+                use: [
+                    { loader: 'babel-loader' },
+                    {
+                        loader: '@linaria/webpack-loader',
+                        options: {
+                            sourceMap: process.env.NODE_ENV !== 'production',
+                        },
+                    }
+                ],
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: process.env.NODE_ENV !== 'production',
+                        },
+                    },
+                ],
+            },
         ]
+
     },
     resolve: {
         extensions: ["", ".webpack.js", ".web.js", ".ts", ".tsx", ".js"],

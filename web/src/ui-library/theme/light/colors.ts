@@ -17,4 +17,8 @@ export default `
     
     /* SPINNER */
     --color-spinner-fg: var(--color-green);
+    
+    /* CARD */
+    --color-card-border: var(--color-light-grey);
+    --color-card-box-shadow: rgba(0, 0, 0, 0.14);
 `
